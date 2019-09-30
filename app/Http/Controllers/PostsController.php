@@ -189,4 +189,47 @@ class PostsController extends Controller
         $post = Post::find($id);
 
     }
+
+    public function updateNew(Request $request, $id)
+    {
+
+
+
+        $post = Post::find($id);
+
+        $post ->title = $post ->title;
+        $post ->body = $post ->body;
+        $post ->user_id = auth()->user()->id;
+        $post ->cover_image = $post ->cover_image;
+        $post->save();
+
+        return redirect('/dashboard')->with('success', 'Post Item Acquired');
+    }
+
+    /*if($request ->hasFile('cover_image')){
+          //Get filename with the extension
+          $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+         //Get just filename
+         $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+         //get Extension
+         $extension = $request->file('cover_image')->getClientOriginalExtension();
+         //Create filename to store : it will call the file name and extend it with timestamp to be unique
+         $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+         //finally upload image
+         $path = $request->file('cover_image')->storeAs('public/cover_image', $fileNameToStore);
+        }
+
+        $post = Post::find($id);
+
+        $post ->title = $request->input('title');
+        $post ->body = $request->input('body');
+        $post ->user_id = auth()->user()->id;
+         if($request ->hasFile('cover_image')){
+             $post->cover_image = $fileNameToStore;
+         }
+        $post->save();
+
+        return redirect('/dashboard')->with('success', 'Post Updated');
+    }*/
+
 }
