@@ -22,7 +22,7 @@
     </div>
     @endif
     @if(Auth::user()->id == $post->user_id)
-    <div class="floa-left">
+    <div class="text-left">
     <a href="/posts/{{$post->id}}/edit" class="btn btn-success">Edit</a>
 
     {!! Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}

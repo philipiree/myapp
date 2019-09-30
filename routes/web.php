@@ -47,7 +47,7 @@ Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 
 Route::get('posts/{id}/cart', 'PostsController@cart');
-Route::put('posts/{id}', 'PostsController@updateNew');
+Route::put('posts/{id}/{user_id}', 'PostsController@updateNew');
 Route::resource('posts', 'PostsController');
 
 

@@ -14,13 +14,12 @@
         </div>
     <hr>
 
-
-    <h1>Edit Your Owned Posts</h1>
-    {!! Form::open(['action' => ['PostsController@updateNew', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    <div class="row justify-content-center">
+    {!! Form::open(['action' => ['PostsController@updateNew', $post->id, $post->user_id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         {{Form::hidden('_method', 'PUT')}}
-        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+        {{Form::submit('Submit', ['class' => 'btn btn-primary mx-auto d-block'])}}
     {!! Form::close() !!}
-
+    </div>
 
     <!--Hide if it is a guest-->
     @endsection

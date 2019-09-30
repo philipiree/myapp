@@ -193,8 +193,6 @@ class PostsController extends Controller
     public function updateNew(Request $request, $id)
     {
 
-
-
         $post = Post::find($id);
 
         $post ->title = $post ->title;
